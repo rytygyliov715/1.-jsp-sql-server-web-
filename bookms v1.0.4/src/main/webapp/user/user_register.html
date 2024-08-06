@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            margin: 20px;
+        }
+
+        .card-header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a73e8;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        .custom-radio {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #1a73e8;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #0c5bd3;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-4 {
+            margin-top: 20px;
+        }
+
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background-color: #333;
+            color: #ddd;
+        }
+
+        .container.dark-mode {
+            background: #555;
+            color: #ddd;
+        }
+
+        .card-header.dark-mode {
+            color: #1a73e8;
+        }
+
+        .form-control.dark-mode {
+            background: #444;
+            border-color: #888;
+            color: #ddd;
+        }
+
+        .custom-radio.dark-mode .custom-control-label {
+            color: #ddd;
+        }
+
+        .btn.dark-mode {
+            background-color: #1a73e8;
+        }
+
+        .btn.dark-mode:hover {
+            background-color: #0c5bd3;
+        }
+
+        .text-center.dark-mode {
+            color: #1a73e8;
+        }
+
+        a.dark-mode {
+            color: #1a73e8;
+        }
+
+        a.dark-mode:hover {
+            color: #0c5bd3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="toggle-switch">
+        <input type="checkbox" id="dark-mode-toggle">
+        <label for="dark-mode-toggle"></label>
+    </div>
+
+    <div class="container">
+        <h5 class="card-header">用户注册</h5>
+        <div class="card-body">
+            <form action="../UserRegisterServlet" method="post">
+                <label for="username">用户名:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+
+                <label for="password">密码:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+
+                <label for="phone">电话号码:</label>
+                <input type="text" class="form-control" id="phone" name="phone" required>
+
+                <label for="email">电子邮件:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+
+                <label>性别:</label>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="man" name="gender" class="custom-control-input" value="man">
+                    <label class="custom-control-label" for="man">男</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="women" name="gender" class="custom-control-input" value="women">
+                    <label class="custom-control-label" for="women">女</label>
+                </div>
+
+                <button type="submit" class="btn">注册</button>
+            </form>
+        </div>
+        <p class="text-center mt-4">已有帐户? <a href="user_login.html">登录</a></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleSwitch = document.getElementById('dark-mode-toggle');
+            const body = document.body;
+
+            // Check for saved user preference, if any, on load of the website
+            const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+            if (currentTheme) {
+                body.classList.add(currentTheme);
+
+                if (currentTheme === 'dark-mode') {
+                    toggleSwitch.checked = true;
+                }
+            }
+
+            toggleSwitch.addEventListener('change', function () {
+                if (toggleSwitch.checked) {
+                    body.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark-mode');
+                } else {
+                    body.classList.remove('dark-mode');
+                    localStorage.setItem('theme', 'light-mode');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

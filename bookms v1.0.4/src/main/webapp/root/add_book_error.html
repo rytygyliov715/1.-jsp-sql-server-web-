@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>添加书籍错误</title>
+
+    <script>
+        function validateForm() {
+            // 获取表单元素
+            var username = document.getElementById("username").value;
+            var currentPassword = document.getElementById("currentPassword").value;
+            var newPassword = document.getElementById("newPassword").value;
+
+            // 验证是否全部填写
+            if (username === "" || currentPassword === "" || newPassword === "") {
+                alert("请完整填写所有字段");
+                return false;
+            }
+
+            return true;
+        }
+
+        function validatePasswords() {
+            // 获取密码字段
+            var currentPassword = document.getElementById("currentPassword").value;
+            var newPassword = document.getElementById("newPassword").value;
+
+            // 验证新旧密码是否一致
+            if (currentPassword === newPassword) {
+                alert("新密码不能与当前密码相同");
+                return false;
+            }
+
+            return true;
+        }
+
+        function handleSubmit(event) {
+            // 验证表单输入是否完整
+            if (!validateForm()) {
+                event.preventDefault();
+                return false;
+            }
+
+            // 验证新旧密码是否一致
+            if (!validatePasswords()) {
+                event.preventDefault();
+                return false;
+            }
+
+            return true;
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="center-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title alert-heading">错误: 一本同名的书已经存在!</h4>
+                <p class="card-text">请使用其他书名重试。</p>
+                <button type="button" class="secondary" onclick="window.location.href='admin_home.jsp'">
+                    返回
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

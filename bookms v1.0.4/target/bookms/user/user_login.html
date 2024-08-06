@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Login</title>
+</head>
+<body>
+<h2>User Login</h2>
+<form action="../UserLoginServlet" method="post">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br>
+    <input type="submit" value="Login">
+</form>
+<p style="color:red">${error}</p> <!-- Display error message -->
+
+<p>Don't have an account? <a href="user/user_register.html">Register</a></p>
+</body>
+</html>

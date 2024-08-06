@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>管理员登录</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            animation: gradient 5s ease-in-out infinite;
+            background: linear-gradient(270deg, #f8f9fa, #6c757d);
+            background-size: 200% 200%
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            margin: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #1a73e8;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #1a73e8;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button.secondary {
+            background-color: #ccc;
+        }
+
+        button:hover {
+            background-color: #0c5bd3;
+        }
+
+        button.secondary:hover {
+            background-color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            input,
+            select {
+                padding: 8px;
+            }
+
+            button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            margin: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #1a73e8;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #1a73e8;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button.secondary {
+            background-color: #ccc;
+        }
+
+        button:hover {
+            background-color: #0c5bd3;
+        }
+
+        button.secondary:hover {
+            background-color: #aaa;
+        }
+
+        .toggle-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .dark-mode .container {
+            background: #444;
+            color: #fff;
+        }
+
+        .dark-mode input,
+        .dark-mode select {
+            background-color: #555;
+            border: 1px solid #666;
+            color: #fff;
+        }
+
+        .dark-mode button {
+            background-color: #1a73e8;
+        }
+
+        .dark-mode button.secondary {
+            background-color: #666;
+        }
+
+        .dark-mode button:hover {
+            background-color: #0c5bd3;
+        }
+
+        .dark-mode button.secondary:hover {
+            background-color: #888;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            input,
+            select {
+                padding: 8px;
+            }
+
+            button {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+    <script>
+        function validateForm() {
+            // 获取表单元素
+            var username = document.getElementById("username").value;
+            var currentPassword = document.getElementById("currentPassword").value;
+            var newPassword = document.getElementById("newPassword").value;
+
+            // 验证是否全部填写
+            if (username === "" || currentPassword === "" || newPassword === "") {
+                alert("请完整填写所有字段");
+                return false;
+            }
+
+            return true;
+        }
+
+        function validatePasswords() {
+            // 获取密码字段
+            var currentPassword = document.getElementById("currentPassword").value;
+            var newPassword = document.getElementById("newPassword").value;
+
+            // 验证新旧密码是否一致
+            if (currentPassword === newPassword) {
+                alert("新密码不能与当前密码相同");
+                return false;
+            }
+
+            return true;
+        }
+
+        function handleSubmit(event) {
+            // 验证表单输入是否完整
+            if (!validateForm()) {
+                event.preventDefault();
+                return false;
+            }
+
+            // 验证新旧密码是否一致
+            if (!validatePasswords()) {
+                event.preventDefault();
+                return false;
+            }
+
+            return true;
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- 在左上角调用displayTime脚本显示时间 -->
+    <div id="current-time" style="position: fixed; top: 0; left: 0; padding: 10px; 
+        background-color: #1a73e8; color: #fff;">
+
+    </div>
+    <!-- 顶部显示文字：欢迎管理员 -->
+    <div style="position: fixed; top: 0; right: 0; padding: 10px; 
+    background-color: #1a73e8; color: #fff;">
+
+    </div>
+
+
+
+    <div class="container">
+        <h2>管理员登录</h2>
+        <form class="form" action="../AdminLoginServlet" method="post" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="username">管理员账号:</label>
+                <input type="text" id="username" name="username">
+            </div>
+            <div class="form-group">
+                <label for="password">密码:</label>
+                <input type="password" id="password" name="password">
+                <span class="toggle-password" onclick="togglePassword()">显示密码</span>
+            </div>
+            <button type="submit">登录</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === "") {
+                alert("Username must be filled out");
+                return false;
+            }
+
+            if (password === "") {
+                alert("Password must be filled out");
+                return false;
+            }
+
+            return true;
+        }
+
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const toggleText = document.querySelector('.toggle-password');
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                toggleText.textContent = "Hide Password";
+            } else {
+                passwordField.type = "password";
+                toggleText.textContent = "Show Password";
+            }
+        }
+    </script>
+    <script>
+        function displayTime() {
+            const date = new Date();
+            const time = date.toLocaleTimeString();
+            const timeElement = document.getElementById('current-time');
+            timeElement.textContent = time;
+        }
+
+        setInterval(displayTime, 1000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+</head>
+<body>
+    <h2>User Registration</h2>
+    <form action="../UserRegisterServlet" method="post">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
+        <label for="phone">Phone:</label><br>
+        <input type="text" id="phone" name="phone" required><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <fieldset>
+            <legend>Gender:</legend>
+            <input type="radio" id="man" name="gender" value="man">
+            <label for="man">Man</label><br>
+            <input type="radio" id="women" name="gender" value="women">
+            <label for="women">Women</label><br>
+        </fieldset>
+        <input type="submit" value="Register">
+    </form>
+    <p style="color:red">${error}</p> <!-- Display error message -->
+
+    <p>Already have an account? <a href="user_login.html">Login</a></p>
+</body>
+</html>

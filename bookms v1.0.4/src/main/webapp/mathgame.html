@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game-message</title>
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+        function checkGuess() {
+            let guess = parseInt(document.getElementById('guess-input').value);
+            let message = document.getElementById('game-message');
+
+            if (guess > randomNumber) {
+                message.textContent = '太大了，再试一次!';
+            } else if (guess < randomNumber) {
+                message.textContent = '太小了，再试一次!';
+            } else {
+                message.textContent = '恭喜你，猜对了!';
+            }
+        }
+    </script>
+
+    <style>
+        /* 布局 */
+        .center-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .game-container {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .game-container h3 {
+            color: #6c757d;
+            font-size: 18px;
+        }
+
+        .game-container input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .game-container button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /*颜色和动画 */
+        body {
+            animation: gradient 5s ease-in-out infinite;
+            background: linear-gradient(270deg, #f8f9fa, #6c757d);
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="game-container">
+        <h3>猜数字游戏</h3>
+        <p id="game-message">我已经想好了一个1到100之间的数字。你能猜出来吗？</p>
+        <input type="number" id="guess-input" min="1" max="100" placeholder="输入你的猜测" />
+        <button onclick="checkGuess()">猜一下</button>
+    </div>
+</body>
+
+</html>

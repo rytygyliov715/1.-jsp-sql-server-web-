@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>添加新书</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <h2>添加新书</h2>
+        <form action="../AddBookServlet" method="post" class="form">
+            <div class="form-group">
+                <label for="book_name">书名:</label>
+                <input type="text" id="book_name" name="book_name" required>
+            </div>
+            <div class="form-group">
+                <label for="author">作者:</label>
+                <input type="text" id="author" name="author" required>
+            </div>
+            <button type="submit">添加书籍</button>
+            <!--返回-->
+            <button type="button" class="secondary" onclick="window.location.href='admin_home.jsp'">
+                返回
+            </button>
+        </form>
+    </div>
+
+</body>
+
+</html>

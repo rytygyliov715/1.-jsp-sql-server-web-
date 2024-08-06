@@ -1,0 +1,138 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+  <display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <servlet-class>servlet.AdminLoginServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>AdminLoginServlet</servlet-name>
+    <url-pattern>/AdminLoginServlet</url-pattern>
+</servlet-mapping>
+
+    <servlet>
+    <servlet-name>UserLoginServlet</servlet-name>
+    <servlet-class>servlet.UserLoginServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>UserLoginServlet</servlet-name>
+    <url-pattern>/UserLoginServlet</url-pattern>
+</servlet-mapping>
+
+    <servlet>
+    <servlet-name>UserRegisterServlet</servlet-name>
+    <servlet-class>servlet.UserRegisterServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>UserRegisterServlet</servlet-name>
+    <url-pattern>/UserRegisterServlet</url-pattern>
+</servlet-mapping>
+
+    <servlet>
+    <servlet-name>ViewBooksServlet</servlet-name>
+    <servlet-class>servlet.ViewBooksServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ViewBooksServlet</servlet-name>
+    <url-pattern>/ViewBooksServlet</url-pattern>
+</servlet-mapping>
+
+    <servlet>
+    <servlet-name>AddBookServlet</servlet-name>
+    <servlet-class>servlet.AddBookServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>AddBookServlet</servlet-name>
+    <url-pattern>/AddBookServlet</url-pattern>
+</servlet-mapping>
+
+    <servlet>
+    <servlet-name>DeleteBookServlet</servlet-name>
+    <servlet-class>servlet.DeleteBookServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>DeleteBookServlet</servlet-name>
+    <url-pattern>/DeleteBookServlet</url-pattern>
+</servlet-mapping>
+
+    <servlet>
+    <servlet-name>ModifyBookServlet</servlet-name>
+    <servlet-class>servlet.ModifyBookServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ModifyBookServlet</servlet-name>
+    <url-pattern>/ModifyBookServlet</url-pattern>
+</servlet-mapping>
+
+    <servlet>
+    <servlet-name>ViewUsersServlet</servlet-name>
+    <servlet-class>servlet.ViewUsersServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ViewUsersServlet</servlet-name>
+    <url-pattern>/ViewUsersServlet</url-pattern>
+</servlet-mapping>
+
+    <servlet>
+    <servlet-name>DeleteUsersServlet</servlet-name>
+    <servlet-class>servlet.DeleteUsersServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>DeleteUsersServlet</servlet-name>
+    <url-pattern>/DeleteUsersServlet</url-pattern>
+</servlet-mapping>
+
+    <servlet>
+    <servlet-name>ChangePasswordServlet</servlet-name>
+    <servlet-class>servlet.ChangePasswordServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ChangePasswordServlet</servlet-name>
+    <url-pattern>/ChangePasswordServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>BorrowBookServlet</servlet-name>
+    <servlet-class>servlet.BorrowBookServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>BorrowBookServlet</servlet-name>
+    <url-pattern>/BorrowBookServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>ReturnBooksServlet</servlet-name>
+    <servlet-class>servlet.ReturnBooksServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ReturnBooksServlet</servlet-name>
+    <url-pattern>/ReturnBooksServlet</url-pattern>
+</servlet-mapping>
+
+   <servlet>
+        <servlet-name>ModifyPasswordServlet</servlet-name>
+        <servlet-class>servlet.ModifyPasswordServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ModifyPasswordServlet</servlet-name>
+        <url-pattern>/ModifyPasswordServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+    <servlet-name>RegisterAdminServlet</servlet-name>
+    <servlet-class>servlet.RegisterAdminServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>RegisterAdminServlet</servlet-name>
+    <url-pattern>/RegisterAdminServlet</url-pattern>
+</servlet-mapping>
+</web-app>
